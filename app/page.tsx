@@ -1,5 +1,6 @@
 import { EmailActions } from '@/components/email-actions'
 import { FocusAreas } from '@/components/focus-areas'
+import { KeyAchievements } from '@/components/key-achievements'
 
 export default function Page() {
   return (
@@ -20,6 +21,8 @@ export default function Page() {
         </header>
 
         <FocusAreas />
+
+        <KeyAchievements />
 
         <section aria-labelledby="contact-heading" className="flex flex-col gap-4">
           <h2
