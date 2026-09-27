@@ -1,3 +1,5 @@
+import { SectionHeading } from '@/components/section-heading'
+
 const ACHIEVEMENTS = [
   {
     title: 'BSc Pharmacology',
@@ -25,33 +27,45 @@ const ACHIEVEMENTS = [
 export function KeyAchievements() {
   return (
     <section
+      id="background"
       aria-labelledby="achievements-heading"
-      className="flex flex-col gap-4"
+      className="scroll-mt-16 border-t border-border bg-card/30"
     >
-      <h2
-        id="achievements-heading"
-        className="text-xs font-medium uppercase tracking-[0.2em] text-primary"
-      >
-        Key Achievements &amp; Background
-      </h2>
-      <ul className="flex flex-col divide-y divide-border border-y border-border">
-        {ACHIEVEMENTS.map((item) => (
-          <li key={item.title} className="flex flex-col gap-1.5 py-4">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="font-serif text-lg font-medium text-foreground">
-                {item.title}
-              </h3>
-              <span className="text-xs uppercase tracking-wider text-muted-foreground tabular-nums">
-                {item.period}
-              </span>
-            </div>
-            <p className="text-sm text-primary/90">{item.organisation}</p>
-            <p className="text-sm leading-relaxed text-muted-foreground text-pretty">
-              {item.detail}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[1fr_2fr] lg:py-32">
+        <SectionHeading
+          id="achievements-heading"
+          index="02"
+          eyebrow="Background"
+          title="Key Achievements & Background"
+        />
+
+        <ol className="relative flex flex-col gap-4 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-px before:bg-border">
+          {ACHIEVEMENTS.map((item) => (
+            <li key={item.title} className="relative pl-10">
+              <span
+                className="absolute top-8 left-0 size-[15px] rounded-full border-2 border-primary bg-background"
+                aria-hidden="true"
+              />
+              <article className="flex flex-col gap-3 rounded-2xl border border-border bg-background/60 p-6 transition-colors hover:border-primary/40 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="font-serif text-2xl font-medium text-foreground">
+                    {item.title}
+                  </h3>
+                  <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs uppercase tracking-wider text-primary tabular-nums">
+                    {item.period}
+                  </span>
+                </div>
+                <p className="text-sm font-medium text-foreground/80">
+                  {item.organisation}
+                </p>
+                <p className="leading-relaxed text-muted-foreground text-pretty">
+                  {item.detail}
+                </p>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   )
 }

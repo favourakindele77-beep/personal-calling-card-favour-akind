@@ -1,39 +1,25 @@
-import { EmailActions } from '@/components/email-actions'
+import { ContactSection } from '@/components/contact-section'
 import { FocusAreas } from '@/components/focus-areas'
+import { Hero } from '@/components/hero'
 import { KeyAchievements } from '@/components/key-achievements'
+import { SiteHeader } from '@/components/site-header'
 
 export default function Page() {
   return (
-    <main className="flex min-h-dvh items-center justify-center px-6 py-16">
-      <article className="flex w-full max-w-xl flex-col gap-10">
-        <header className="flex flex-col gap-5">
-          <div className="h-px w-12 bg-primary" aria-hidden="true" />
-          <h1 className="font-serif text-5xl font-medium leading-tight tracking-tight text-balance sm:text-6xl">
-            Favour Akindele
-          </h1>
-          <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-            Master of Global Public Health student at{' '}
-            <span className="text-foreground">
-              Manchester Metropolitan University
-            </span>
-            , graduating in 2026.
-          </p>
-        </header>
-
+    <>
+      <SiteHeader />
+      <main>
+        <Hero />
         <FocusAreas />
-
         <KeyAchievements />
-
-        <section aria-labelledby="contact-heading" className="flex flex-col gap-4">
-          <h2
-            id="contact-heading"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-primary"
-          >
-            Get in touch
-          </h2>
-          <EmailActions />
-        </section>
-      </article>
-    </main>
+        <ContactSection />
+      </main>
+      <footer className="border-t border-border">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; 2026 Favour Akindele</p>
+          <p>Global Public Health &middot; Manchester Metropolitan University</p>
+        </div>
+      </footer>
+    </>
   )
 }
